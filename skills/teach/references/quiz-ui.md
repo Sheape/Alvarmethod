@@ -6,22 +6,43 @@ If more than one of these tools exists, pick the first match in the table.
 
 | If you have this tool | Harness | Call it |
 |-----------------------|---------|---------|
+| `ask_question` | **Antigravity** | `ask_question` |
 | `ask_user_question` | **Grok Build** or **Codex** | `ask_user_question` |
 | `AskUserQuestion` | **Claude Code** | `AskUserQuestion` |
 | `question` | **OpenCode** | `question` |
 | `quiz` | **Pi** (quiz extension) | `quiz` |
 | `ask_user` / `askUserQuestion` / `ask_user_question` | **Pi** (ask-user extension) | that tool |
 
+Match the tool name exactly: `ask_question` (Antigravity, no `user`) is a different tool from `ask_user_question` (Grok/Codex).
+
 No match → say which tool is missing and stop. Do not fall back to pasted multiple choice.
 
 ## Shared quiz shape
 
 - 1–3 questions per call. Wait.
-- One right answer. `multi_select` / `multiSelect` / `multiple` = false.
+- One right answer. `multi_select` / `multiSelect` / `multiple` / `is_multi_select` = false.
 - Options: 3 content choices + **I don't know**.
 - Do **not** mark the correct option `(Recommended)` or put it first on purpose. That leaks the answer. Shuffle or keep a fixed A/B/C order that is not “right answer first.”
-- Free-text / Other is for talk-through. Treat a typed reason as signal when scoring.
-- Header / strand tag: short (≤12 chars if the tool requires it), e.g. `synbio`, `promoter`, `dogma`.
+- Free-text / Other is for talk-through. Treat a typed reason as signal when scoring. On Antigravity do not add an explicit `Other` option — the native write-in field is the talk-through slot.
+- Header / strand tag: short (≤12 chars if the tool requires it), e.g. `synbio`, `promoter`, `dogma`. Antigravity has no `header` field — prefix the tag to the question text instead.
+
+## Antigravity — `ask_question`
+
+```
+ask_question
+  questions:
+    - question: "<stem>"
+      options:
+        - "<choice>"
+        - "<choice>"
+        - "<choice>"
+        - "I don't know"
+      is_multi_select: false
+```
+
+- `options` are plain strings, not `label` / `description` objects. There is no `header` field — prefix the strand tag to the question text when you need it, e.g. `"[promoter] <stem>"`.
+- Do **not** add an explicit `"Other"` option. Antigravity already renders a native write-in field on every question; that is the talk-through slot. Keep `"I don't know"` as an explicit option — scoring depends on it.
+- `is_multi_select: false`. 1–3 questions per call.
 
 ## Grok — `ask_user_question`
 

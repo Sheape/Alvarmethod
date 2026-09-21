@@ -25,7 +25,7 @@ Credit stays with **[Eero Alvar — How I Use AI to Learn Things](https://youtu.
 ## Ground rules
 
 1. **One home per fact.** Philosophy lives in `skills/teach/references/philosophy.md`. Process in `process.md`. Quiz tools in `quiz-ui.md`. Point at those files; don’t restate them.
-2. **Native quiz UI only.** Probe and lock-in quizzes must call the harness tool (`ask_user_question`, `AskUserQuestion`, `question`, Pi `quiz` / `ask_user`). Never paste A/B/C/D in chat. Details: [`skills/teach/references/quiz-ui.md`](skills/teach/references/quiz-ui.md).
+2. **Native quiz UI only.** Probe and lock-in quizzes must call the harness tool (`ask_question`, `ask_user_question`, `AskUserQuestion`, `question`, Pi `quiz` / `ask_user`). Never paste A/B/C/D in chat. Details: [`skills/teach/references/quiz-ui.md`](skills/teach/references/quiz-ui.md).
 3. **Do not leak the answer.** No `(Recommended)` on the right option. No “correct choice first.”
 4. **Struggle stays in the material.** Skills absorb logistics (order, files, verify, diagrams).
 5. **Portable `SKILL.md`.** [Agent Skills](https://agentskills.io/specification) frontmatter only: `name`, `description`, optional `license` / `metadata`. `name` must match the folder. `description` ≤ 1024 chars and must include trigger phrases.
@@ -62,7 +62,7 @@ Then open a **learning folder** (not this repo) and run `/teach` or “teach me 
 - [ ] Teaching is one node, then a lock-in quiz
 - [ ] No invented citations (`learn-verify` when unsure)
 
-If you only changed Claude paths, still skim `quiz-ui.md` so Grok/Codex/OpenCode/Pi stay named correctly.
+If you only changed Claude paths, still skim `quiz-ui.md` so Grok/Codex/OpenCode/Pi/Antigravity stay named correctly.
 
 ## Add a skill
 
@@ -95,7 +95,7 @@ Don’t commit anything under a contributor’s `~/.claude` or `.alvar/`.
 
 1. Branch from `main`. Small, one-concern PRs.
 2. Describe what an *agent* will do differently, not just what you edited.
-3. Note which harnesses you actually ran (`grok`, `claude`, `codex`, `opencode`, `pi`).
+3. Note which harnesses you actually ran (`grok`, `claude`, `codex`, `opencode`, `pi`, `antigravity`).
 4. No secrets, no learner maps, no force-push to `main`.
 
 ### PR checklist

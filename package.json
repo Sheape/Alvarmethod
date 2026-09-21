@@ -1,7 +1,7 @@
 {
   "name": "alvarmethod",
   "version": "1.0.0",
-  "description": "One-to-one AI teaching skills (Alvar method) for Codex, Claude Code, Grok, Pi, and OpenCode",
+  "description": "One-to-one AI teaching skills (Alvar method) for Codex, Claude Code, Grok, Pi, OpenCode, and Antigravity",
   "bin": {
     "alvarmethod": "bin/alvarmethod.js"
   },
@@ -28,7 +28,8 @@
     "codex",
     "opencode",
     "grok",
-    "pi"
+    "pi",
+    "antigravity"
   ],
   "license": "MIT",
   "engines": {

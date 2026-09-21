@@ -17,7 +17,7 @@ Usage:
   ./install.sh --uninstall  remove installed copies (not this repo)
 
 Optional filters (combine with default or --project):
-  --agents --claude --grok --pi --opencode --codex
+  --agents --claude --grok --pi --opencode --codex --antigravity
   If none of these are passed, all of them are used.
 EOF
 }
@@ -33,14 +33,14 @@ while [[ $# -gt 0 ]]; do
     --project) MODE="project" ;;
     --uninstall) DO_UNINSTALL=1 ;;
     --list) DO_LIST=1 ;;
-    --agents|--claude|--grok|--pi|--opencode|--codex) FILTERS+=("${1#--}") ;;
+    --agents|--claude|--grok|--pi|--opencode|--codex|--antigravity) FILTERS+=("${1#--}") ;;
     *) echo "unknown arg: $1" >&2; usage; exit 1 ;;
   esac
   shift
 done
 
 if [[ ${#FILTERS[@]} -eq 0 ]]; then
-  FILTERS=(agents claude grok pi opencode codex)
+  FILTERS=(agents claude grok pi opencode codex antigravity)
 fi
 
 home_targets() {
@@ -53,6 +53,7 @@ home_targets() {
       pi)       echo "$HOME/.pi/agent/skills" ;;
       opencode) echo "$HOME/.config/opencode/skills" ;;
       codex)    echo "$HOME/.codex/skills" ;;
+      antigravity) echo "$HOME/.gemini/config/skills" ;;
     esac
   done
 }
@@ -67,6 +68,7 @@ project_targets() {
       pi)       echo "$PWD/.pi/skills" ;;
       opencode) echo "$PWD/.opencode/skills" ;;
       codex)    echo "$PWD/.agents/skills" ;;
+      antigravity) echo "$PWD/.agents/skills" ;;
     esac
   done
 }

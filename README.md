@@ -18,7 +18,7 @@
 npx skills add vasanthsreeram/Alvarmethod -g --all
 ```
 
-That’s the install. Works in **Claude Code**, **Codex**, **Grok**, **Pi**, **OpenCode**, Cursor, and the rest of the [skills CLI](https://skills.sh) agents.
+That’s the install. Works in **Claude Code**, **Codex**, **Grok**, **Pi**, **OpenCode**, **Antigravity**, Cursor, and the rest of the [skills CLI](https://skills.sh) agents.
 
 Then open a **learning folder** (not this repo) and say:
 
@@ -47,7 +47,7 @@ npx skills add vasanthsreeram/Alvarmethod --list
 npx skills add vasanthsreeram/Alvarmethod --skill teach -g -y
 
 # one harness
-npx skills add vasanthsreeram/Alvarmethod -g -y -a claude-code -a grok -a pi -a opencode -a codex
+npx skills add vasanthsreeram/Alvarmethod -g -y -a claude-code -a grok -a pi -a opencode -a codex -a antigravity
 ```
 
 Update later:
@@ -63,7 +63,7 @@ No extra CLI — runs [`install.sh`](install.sh) from GitHub:
 ```bash
 npx github:vasanthsreeram/Alvarmethod
 npx github:vasanthsreeram/Alvarmethod --list
-npx github:vasanthsreeram/Alvarmethod --claude --grok
+npx github:vasanthsreeram/Alvarmethod --claude --grok --antigravity
 ```
 
 ### Clone
@@ -83,6 +83,7 @@ cd Alvarmethod
 | Grok | `~/.grok/skills` |
 | Pi | `~/.pi/agent/skills` |
 | OpenCode | `~/.config/opencode/skills` |
+| Antigravity | `~/.gemini/config/skills` |
 
 ---
 
@@ -129,6 +130,7 @@ Quizzes **must** use the native picker:
 
 | Agent | Tool |
 |-------|------|
+| Antigravity | `ask_question` |
 | Grok / Codex | `ask_user_question` |
 | Claude Code | `AskUserQuestion` |
 | OpenCode | `question` |
